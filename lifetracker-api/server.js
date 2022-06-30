@@ -5,6 +5,7 @@ const { PORT } = require("./config");
 const { NotFoundError } = require ("./utils/errors");
 const security = require("./middleware/security");
 const authRoutes = require("./routes/auth");
+const nutritionRoutes = require("./routes/nutrition");
 
 const app = express();
 
@@ -22,6 +23,8 @@ app.get("/", (req, res) => {
 app.use(security.extractUserFromJwt);
 
 app.use("/auth", authRoutes);
+app.use("/nutrition", nutritionRoutes);
+
 
 app.use((req, res, next) => {
    return next(new NotFoundError());
