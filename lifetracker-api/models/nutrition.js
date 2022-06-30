@@ -3,11 +3,43 @@ const { BadRequestError, NotFoundError} = require("../utils/errors");
 
 class Nutrition {
    static async listAllNutrition() {
-
+      const results = await db.query (
+         `
+         SELECT n.id,
+                n.category,
+                n.calories,
+                n.image_url,
+                n.user_id,
+                u.email,
+                n.created_at
+         FROM nutrition AS n
+            JOIN users AS u ON u.id = n.user_id
+         ORDER BY n.created_at DESC
+         `
+      )
+      return results.rows;
    }
 
    static async fetchNutritionById(nutritionId) {
-      
+      const results = await db.query (
+         `
+         SELECT n.id,
+                n.category,
+                n.calories,
+                n.image_url,
+                n.user_id,
+                u.email,
+                n.created_at
+         FROM nutrition AS n
+            JOIN users AS u ON u.id = n.user_id
+         WHERE n.id = $1
+         `, [nutritionId]
+      )
+      const nutrition = results.rows[0];
+      if (!nutrition) {
+         throw new NotFoundError("Doesn't exist.");
+      }   
+      return nutrition;
    }
 
    static async createNewNutrition({ nutrition, user }) {
