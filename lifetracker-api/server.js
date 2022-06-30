@@ -3,6 +3,7 @@ const cors = require("cors");
 const morgan = require("morgan");
 const { PORT } = require("./config");
 const { NotFoundError } = require ("./utils/errors");
+const security = require("./middleware/security");
 const authRoutes = require("./routes/auth");
 
 const app = express();
@@ -16,6 +17,9 @@ app.use(morgan("tiny"));
 app.get("/", (req, res) => {
    res.status(200).json({ping: "pong"});
 });
+
+// check if user or token exists in header
+app.use(security.extractUserFromJwt);
 
 app.use("/auth", authRoutes);
 
