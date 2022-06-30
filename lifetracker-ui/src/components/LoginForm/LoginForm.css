@@ -1,0 +1,29 @@
+.form {
+   margin: 100px 400px;
+   color: black;
+   display: flex;
+   flex-direction: column;
+}
+
+.form .form-input {
+   display: flex;
+   flex-direction: column;
+   margin-bottom: 20px;
+   font-size: larger;
+}
+
+.form .form-input input {
+   margin-top: 10px;
+   height: 40px;
+   border: 1px solid black;
+   color: black;
+}
+
+.form .submit-login {
+   width: 100%;
+   height: 100px;
+   font-size: larger;
+   background: #00c98e;
+   color: white;
+   border: 1px solid white;
+}
