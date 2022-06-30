@@ -18,11 +18,11 @@ function getDatabaseUri() {
 
 const BCRYPT_WORK_FACTOR = 13;
 
-console.log("App Config".green)
+console.log("App Config".blue)
 console.log("PORT:".blue, PORT)
 console.log("IS testing:".blue, IS_TESTING)
-console.log("BCRYPT_WORK_FACTOR".yellow, BCRYPT_WORK_FACTOR);
-console.log("Database URI:".blue, getDatabaseUri())
+console.log("BCRYPT_WORK_FACTOR".blue, BCRYPT_WORK_FACTOR)
+console.log("Database URI:".blue, getDatabaseUri())   
 console.log("---")
 
 module.exports = {
