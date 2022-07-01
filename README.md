@@ -9,7 +9,7 @@ Everywhere around us is data waiting to be collected and utilized. In recent yea
 This application will be built using the battle-tested PERN stack - PostgreSQL, Express, React, and Node.
 
 <p>
-  <img align="center" src="https://github.com/hawoissa/tdd-student-store-starter/blob/main/week4.gif" width="600" height="420" />
+  <img align="center" src="https://github.com/hawoissa/tdd-lifetracker-starter/blob/core-features/week4.gif" width="600" height="420" />
 </p>
 
 ## Goals
