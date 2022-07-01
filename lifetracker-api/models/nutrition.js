@@ -2,7 +2,7 @@ const db = require("../db");
 const { BadRequestError, NotFoundError} = require("../utils/errors");
 
 class Nutrition {
-   static async listAllNutrition() {
+   static async listAllNutrition(userId) {
       const results = await db.query (
          `
          SELECT n.id,
@@ -13,14 +13,15 @@ class Nutrition {
                 u.email,
                 n.created_at
          FROM nutrition AS n
-            JOIN users AS u ON u.id = n.user_id
+            LEFT JOIN users AS u ON u.id = n.user_id
+         WHERE n.user_id = $1
          ORDER BY n.created_at DESC
-         `
-      )
+         `, [userId] 
+      )  
       return results.rows;
    }
 
-   static async fetchNutritionById(nutritionId) {
+   static async fetchNutritionById(userId, nutritionId) {
       const results = await db.query (
          `
          SELECT n.id,
@@ -32,8 +33,8 @@ class Nutrition {
                 n.created_at
          FROM nutrition AS n
             JOIN users AS u ON u.id = n.user_id
-         WHERE n.id = $1
-         `, [nutritionId]
+         WHERE n.id = $1 AND n.user_id = $2
+         `, [nutritionId, userId] 
       )
       const nutrition = results.rows[0];
       if (!nutrition) {
