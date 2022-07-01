@@ -1,0 +1,122 @@
+.nutrition-page .title {
+   text-align: center;
+   padding: 20px 0;
+   background: #00c385;
+   color: white;
+}
+
+.nothing {
+   width: 15%;
+   text-align: center;
+   padding: 10px;
+   border: 1px solid black;
+   display: flex;
+   margin: 0 auto;
+   color: #00c385;
+}
+
+.nutrition-overview  .subtitle {
+   margin: 0 100px;
+   color: black;
+   display: flex;
+   justify-content: space-between;
+}
+
+.nutrition-overview  .subtitle h2 {
+   border-bottom: 1px solid #00c385;
+   padding: 0 7px;
+}
+
+.nutrition-overview .subtitle h3 {
+   background: #00c385;
+   padding: 10px
+}
+
+/* FEED FOR .nutrition-feed */
+.nutrition-feed {
+   color: black;
+   margin: 0px 200px;
+}
+
+/* CARD RENDERED IN NUTRITION FEED .nutrition-feed */
+.nutrition-card {
+   height: 220px;
+   width: 360px;
+   display: flex;
+   flex-direction: column;
+}
+
+.nutrition-card .card-header {
+   display: flex;
+   flex-direction: row;
+   width: 220px;
+   padding: 30px;
+}
+
+.nutrition-card .card-header img {
+   width: 20px;
+   height: 20px;
+}
+
+.nutrition-card .card-body {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+}
+
+.nutrition-card .card-footer {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+}
+
+.nutrition-form .form {
+   margin: 10px 400px;
+   color: black;
+   display: flex;
+   flex-direction: column;
+}
+
+.nutrition-form .form .input-field {
+   display: flex;
+   flex-direction: column;
+   margin-bottom: 20px;
+   font-size: larger;
+}
+
+.nutrition-form .form .input-field input {
+   margin-top: 5px;
+   height: 40px;
+   border: 1px solid black;
+   color: black;
+}
+
+.nutrition-form .form .submit-nutrition {
+   background: #00c385;
+   border: 1px solid whitesmoke;
+   font-size: 20px;
+}
+
+.nutrition-form .form .submit-nutrition p {
+   margin: 10px;
+}
+
+.form h3 {
+   color: #00c385;
+   display: flex;
+   justify-content: center;
+}
+
+.nutrition-form .form .goback p {
+   color: black;
+   text-align: center;
+   border: 1px dashed #00c385;
+   width: 200px;
+
+}
+.nutrition-form .form .goback {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   padding: 3px;
+}

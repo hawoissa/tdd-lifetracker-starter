@@ -3,7 +3,7 @@ import Logo from "./Logo"
 import NavLinks from "./NavLinks"
 import "./Navbar.css"
 
-export default function Navbar() {
+export default function Navbar( props ) {
    return (
       <nav className="navbar">
          <div className="content">
@@ -11,7 +11,7 @@ export default function Navbar() {
                <Logo />
             </div >
             {/* <div className="links"> */}
-               <NavLinks />
+               <NavLinks isLoggedIn={props.isLoggedIn} handleLogout={props.handleLogout} />
             {/* </div> */}
          </div>
       </nav>

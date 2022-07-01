@@ -1,11 +1,15 @@
 import * as React from "react"
-import { useState } from "react"
+import { useState} from "react"
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom"
+import apiClient from "../../services/apiClient";
+import axios from "axios"
 import "./LoginForm.css"
 
-export default function LoginForm() {
-   // useNavigate to get to home
-   const [isLoading, setIsLoading] = useState(false)
+export default function LoginForm( props) {
+   const navigate = useNavigate();
    const [errors, setErrors] = useState({})
+   const [isLoading, setIsLoading] = useState(false);
    const [form, setForm] = useState({
      email: "",
      password: "",
@@ -14,16 +18,28 @@ export default function LoginForm() {
    const handleOnInputChange = (event) => {
       if (event.target.name === "email") {
         if (event.target.value.indexOf("@") === -1) {
-          setErrors((e) => ({ ...e, email: "Please enter a valid email." }))
+          setErrors((err) => ({ ...err, email: "Please enter a valid email." }))
         } else {
-          setErrors((e) => ({ ...e, email: null }))
+          setErrors((err) => ({ ...err, email: null }))
         }
       }
       setForm((form) => ({ ...form, [event.target.name]: event.target.value }))
     }
 
-    const handleonSubmit = () => {
-      console.log("submit-login working");
+    const handleOnSubmit = async () => {
+      setIsLoading(false);
+      setErrors((err) => ({ ...err, form: null }))   
+      const { data } = await apiClient.loginUser({ email: form.email, password: form.password })
+      if (data) {
+        props.setUser(data.user);
+        props.setIsLoggedIn(true);
+        apiClient.setToken(data.token);
+        navigate("/activity");
+      }
+      if (errors) {
+        setErrors((err) => ({ ...err, form: errors }))
+      }
+      setIsLoading(false);
     }
 
    return (
@@ -39,7 +55,7 @@ export default function LoginForm() {
                value={form.email}
                onChange={handleOnInputChange}
                /> 
-               {/* include an error */}
+               {errors.email && <span className="error">{errors.email}</span>}
             </div>
             <div className="form-input">
                <label htmlFor="password">Password</label>
@@ -50,11 +66,12 @@ export default function LoginForm() {
                value={form.password}
                onChange={handleOnInputChange}
                /> 
-               {/* include an error */}
+               {errors.password && <span className="error">{errors.pasword}</span>}
             </div>
             
-               <button className="submit-login" onClick= {handleonSubmit}> 
-                  Login
+               <button className="submit-login" onClick= {handleOnSubmit}> 
+                  {/* {errors ? <p>An error is happening.</p> : <p>Login</p> } */}
+                  {isLoading ? <p>Loading...</p> : <p>Login</p> }
                </button>
             
          </div>

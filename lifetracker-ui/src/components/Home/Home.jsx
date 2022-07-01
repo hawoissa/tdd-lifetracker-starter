@@ -17,7 +17,7 @@ export default function Home() {
                </div>
                <div className="words">
                   <h1 className="hero-title">Life Tracker</h1>
-                  <p className="hero-message">Helping you take back control of your world</p>
+                  <p className="hero-message">Helping you take back control of your world!</p>
                </div>
             </div>
             <div className="info">

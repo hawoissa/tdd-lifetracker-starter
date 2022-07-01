@@ -1,3 +1,8 @@
+.error {
+   font-size: 13px;
+   color: red;
+}
+
 .card {
    margin: 10px 400px;
    color: black;

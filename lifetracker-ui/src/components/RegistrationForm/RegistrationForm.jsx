@@ -1,11 +1,14 @@
 import * as React from "react"
 import { useState } from "react"
 import "./RegistrationForm.css"
+import apiClient from "../../services/apiClient";
+import { useNavigate } from "react-router-dom"
 
-export default function RegistrationForm() {
-   /// to navigate into home const navigate = useNavigate()
-   // loading page needed -- const [isLoading, setIsLoading] = useState(false)
-   // error message needed -- const [errors, setErrors] = useState({})
+
+export default function RegistrationForm( props ) {
+  const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
+  const [errors, setErrors] = useState({})
    const [form, setForm] = useState({
      email: "",
      username: "",
@@ -40,7 +43,24 @@ export default function RegistrationForm() {
       setForm((form) => ({...form, [event.target.name]: event.target.value}));
    }
 
- 
+   const handleOnSubmit = async () => {
+    setIsLoading(false);
+    setErrors((err) => ({ ...err, form: null }))   
+    const { data, error } = await apiClient.signupUser({ 
+      email: form.email, username: form.username, first_name: form.first_name,
+      last_name: form.last_name, password: form.password, confirmpassword: form.passwordConfirm 
+    });
+    if (data) {
+      props.setUser(data.user);
+      props.setIsLoggedIn(true);
+      apiClient.setToken(data.token);
+      navigate("/activity");
+    }
+    if (errors) {
+      setErrors((err) => ({ ...err, form: errors }))
+    }
+    setIsLoading(false);
+   }
 
    return (
       <div className="registration-form">
@@ -53,6 +73,7 @@ export default function RegistrationForm() {
                placeholder="email@email.com" value={form.email}
                onChange={handleOnInputChange}
                />
+               {errors.email && <span className="error">{errors.email}</span>}
             </div>
 
             <div className="input-field">
@@ -62,6 +83,7 @@ export default function RegistrationForm() {
               placeholder="username" value={form.username}
               onChange={handleOnInputChange}
             />   
+            {errors.username && <span className="error">{errors.username}</span>}
             </div>
 
             <div className="split">
@@ -72,15 +94,17 @@ export default function RegistrationForm() {
                placeholder="First Name" value={form.first_name}
                onChange={handleOnInputChange}
                />   
+               {errors.first_name && <span className="error">{errors.first_name}</span>}
                </div>
 
                <div className="input-field">
                <label htmlFor="last_name">Last Name</label>
                <input
-               type="lastName" name="lastName"
+               type="lastName" name="last_name"
                placeholder="Last Name" value={form.last_name}
                onChange={handleOnInputChange}
                />   
+               {errors.last_name && <span className="error">{errors.last_name}</span>}
                </div>
             </div>
 
@@ -91,19 +115,22 @@ export default function RegistrationForm() {
               placeholder="password" value={form.password}
               onChange={handleOnInputChange}
             />   
+            {errors.password && <span className="error">{errors.password}</span>}
             </div>
 
             <div className="input-field">
             <label htmlFor="confirmpassword">Confirm Password</label>
             <input
-              type="confirmpassword" name="confirmpassword"
+              type="password" name="passwordConfirm"
               placeholder="password" value={form.passwordConfirm}
               onChange={handleOnInputChange}
             />   
+            {errors.passwordConfirm && <span className="error">{errors.passwordConfirm}</span>}
             </div>
 
-            <button className="submit-registration" >  {/* onClick= {signUpUser} */}
-                  Create Account
+            <button className="submit-registration" onClick= {handleOnSubmit}>  {/*  */}
+                  {/* {errors ? <p>An error is happening.</p> : <p>Sign Up</p> } */}
+                  {isLoading ? <p>Loading...</p> : <p>Sign Up</p> }
             </button>
 
          </div>
