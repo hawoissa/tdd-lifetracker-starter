@@ -111,10 +111,40 @@
 }
 
 .nutrition-form .form .submit-nutrition {
-   background: #00c385;
-   border: 1px solid whitesmoke;
-   font-size: 20px;
+   background: transparent;
+   padding: 120px;
+   border: 1px solid transparent;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   white-space: nowrap;
+   font-weight: 600;
+   cursor: pointer;
+   font-size: large;
+   transition: all .1s ease;
+   padding: 12px 12px;
+   border-radius: 4px;
+   background: #00c98e;
+   color: #fff;
 }
+
+/* .nutrition-overview .subtitle .submit-new {
+   background: transparent;
+   padding: 120px;
+   border: 1px solid transparent;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   white-space: nowrap;
+   font-weight: 300;
+   cursor: pointer;
+   font-size: large;
+   transition: all .1s ease;
+   padding: 6px 12px;
+   border-radius: 4px;
+   background: #00c98e;
+   color: #fff;
+} */
 
 .nutrition-form .form .submit-nutrition p {
    margin: 10px;

@@ -58,7 +58,7 @@ export default function NutritionForm() {
 
          <button className="submit-nutrition" onClick={handleOnSubmit} >  
                   {/* {errors ? <p>An error is happening.</p> : <p>Sign Up</p> } */}
-                  {isProccessing ? "Loading..." : "Record Nutrition" }
+                  {isProccessing ? "Loading..." : "Save" }
          </button>
 
          <div className="goback">

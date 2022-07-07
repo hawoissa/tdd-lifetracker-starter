@@ -1,13 +1,14 @@
 import React from "react";
 import { useNutritionContext } from "../../context/nutrition";
 import NutritionCard from "./NutritionCard";
+import Loading from "../Loading/Loading";
 import "./Nutrition.css"
 
 export default function NutritionFeed() {
    const { nutritions, isProccessing } = useNutritionContext();
    return (
       <div className="nutrition-feed">
-        { isProccessing ?  <h3>Loading...</h3> :
+        { isProccessing ?  <Loading /> :
           <div className="content"> 
         { nutritions.length > 0 ?
           nutritions.map((card) => {

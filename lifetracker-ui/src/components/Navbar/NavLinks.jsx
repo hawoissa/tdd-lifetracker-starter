@@ -18,7 +18,7 @@ export default function NavLinks() {
          <ul className="links">  
             <li><Link to="/activity">Activity</Link></li>
             <li><Link to="/nutrition">Nutrition</Link></li>         
-            <li className="signup" onClick={handleLogout}><Link to="/">Log Out</Link></li>
+            <li className="signup" onClick={handleLogout}><Link to="/" className="signup">Log Out</Link></li>
          </ul>    
          }
       </div>

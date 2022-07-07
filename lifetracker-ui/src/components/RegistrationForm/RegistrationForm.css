@@ -38,10 +38,19 @@
 }
 
 .card .submit-registration{
-   width: 100%;
-   height: 50px;
-   font-size: larger;
+   background: transparent;
+   padding: 120px;
+   border: 1px solid transparent;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   white-space: nowrap;
+   font-weight: 600;
+   cursor: pointer;
+   font-size: large;
+   transition: all .1s ease;
+   padding: 6px 12px;
+   border-radius: 4px;
    background: #00c98e;
-   color: white;
-   border: 1px solid white;
+   color: #fff;
 }

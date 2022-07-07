@@ -9,13 +9,13 @@ export default function NutritionCard({ id, name, calories, category, createdAt,
       <div className="nutrition-card">
       
         <div className="card-head">
-          <img src={imageUrl} alt="Image" />
-          <h4>{name}</h4>
+          <img src={imageUrl} alt="Image" className="nutrition-image"/>
+          <h4 className="nutrition-name">{name}</h4>
         </div>
 
         <div className="card-body">
 
-          <div className="calories">
+          <div className="nutrition-calories">
             <h4>Calories</h4>   
             <h2>{calories}</h2>   
           </div>
@@ -28,8 +28,8 @@ export default function NutritionCard({ id, name, calories, category, createdAt,
 
         <div className="card-footer">
 
-            <p>{createdAt}</p>
-            <p>{category}</p>
+            <p className="nutrition-date">{createdAt}</p>
+            <p className="nutrition-category">{category}</p>
 
         </div>
       </div>

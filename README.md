@@ -338,26 +338,26 @@ The components in the `App.jsx` file should render the following components (alo
     - [ ] It should render the `label` prop inside an element with the `className` of `stat-label`
     - [ ] It should render the `substat` prop inside an element with the `className` of `secondary-statistic`
 
-  - [ ] The **`nutrition`** context
+  - [x] The **`nutrition`** context
 
-    - [ ] Create a file in the `contexts directory - `/contexts/nutrition.jsx`
-    - [ ] In that file, define a new `NutritionContext` with `React.createContext`
-    - [ ] Use that context to create a `NutritionContextProvider` component
-      - [ ] The `NutritionContextProvider` component should create state variables and updaters needed for `nutritions`, `initialized`, `isLoading`, and `error`.
-      - [ ] It should call the `useAuthContext` hook and check to see if a valid user is logged in.
-      - [ ] It should have a `React.useEffect` hook that fires when the component is mounted to the screen
-        - [ ] That hook should check to see if a user is logged in.
-        - [ ] If a user is logged in...
-          - [ ] Set the `isLoading` state variable to `true`
-          - [ ] Then, it should make a `GET` request to the `/nutritions` endpoint
-            - [ ] If there is an error with the request, it should set a message as the `error` state variable
-            - [ ] If all goes well:
-              - [ ] It should set the data as the `nutritions` state variable
-          - [ ] Regardless, at the end, set the `isLoading` state variable to `false` and the `initialized` state variable to `true`
-      - [ ] Make sure to pass an object containing all the state variables to the `value` prop of the `NutritionContext.Provider` component
-    - [ ] Create and export a `useNutritionContext` hook that calls the `React.useContext` hook with the newly created `NutritionContext` and returns it.
+    - [x] Create a file in the `contexts directory - `/contexts/nutrition.jsx`
+    - [x] In that file, define a new `NutritionContext` with `React.createContext`
+    - [x] Use that context to create a `NutritionContextProvider` component
+      - [x] The `NutritionContextProvider` component should create state variables and updaters needed for `nutritions`, `initialized`, `isLoading`, and `error`.
+      - [x] It should call the `useAuthContext` hook and check to see if a valid user is logged in.
+      - [x] It should have a `React.useEffect` hook that fires when the component is mounted to the screen
+        - [x] That hook should check to see if a user is logged in.
+        - [x] If a user is logged in...
+          - [x] Set the `isLoading` state variable to `true`
+          - [x] Then, it should make a `GET` request to the `/nutritions` endpoint
+            - [x] If there is an error with the request, it should set a message as the `error` state variable
+            - [x] If all goes well:
+              - [x] It should set the data as the `nutritions` state variable
+          - [x] Regardless, at the end, set the `isLoading` state variable to `false` and the `initialized` state variable to `true`
+      - [x] Make sure to pass an object containing all the state variables to the `value` prop of the `NutritionContext.Provider` component
+    - [x] Create and export a `useNutritionContext` hook that calls the `React.useContext` hook with the newly created `NutritionContext` and returns it.
 
-  - [ ] The **`NutritionPage.jsx`** component:
+  - [x] The **`NutritionPage.jsx`** component:
 
     - [x] Should render JSX that is wrapped by an element with the `className` of `nutrition-page`
     - [x] Should render a nested `Routes` component from `react-router-dom`.
@@ -367,23 +367,23 @@ The components in the `App.jsx` file should render the following components (alo
         - [x] The `/nutrition/id/:nutritionId` should render the `NutritionDetail.jsx` component
         - [x] Any other route should render the `NotFound` component
 
-  - [ ] The **`NutritionOverview.jsx`** component:
+  - [x] The **`NutritionOverview.jsx`** component:
 
     - [x] Should render JSX that is wrapped by an element with the `className` of `nutrition-overview`
-    - [ ] It should call the `useNutritionContext` hook and extract all the necessary data from it.
-      - [ ] If the `error` state variable has a valid string in it, it should render the `error` message inside an element with the `className` of `error`
+    - [x] It should call the `useNutritionContext` hook and extract all the necessary data from it.
+      - [x] If the `error` state variable has a valid string in it, it should render the `error` message inside an element with the `className` of `error`
       - [x] If the `isLoading` boolean is `true`, it should render the `Loading.jsx` component
-      - [ ] If the `isLoading` boolean is `false`, it should render the `NutritionFeed.jsx` component and pass it the appropriate props
+      - [x] If the `isLoading` boolean is `false`, it should render the `NutritionFeed.jsx` component and pass it the appropriate props
     - [x] Near the top of the component, it should render a `Link` component that directs to the `/nutrition/create` route and contains the text: `"Record Nutrition"`
 
-  - [ ] The **`NutritionFeed.jsx`** component:
+  - [x] The **`NutritionFeed.jsx`** component:
 
-    - [ ] Should render JSX that is wrapped by an element with the `className` of `nutrition-feed`
-    - [ ] It should receive **at least** the following props:
-      - [ ] `nutritions` - an array of `nutrition` items
-    - [ ] If the `nutritions` array has no items in it, it should render an empty message that says `Nothing here yet` inside an element with the `className` of `empty-message`
-    - [ ] If the `nutritions` array does have items in it:
-      - [ ] For each item in the `nutritions` array, it should render a `NutritionCard.jsx` component
+    - [x] Should render JSX that is wrapped by an element with the `className` of `nutrition-feed`
+    - [x] It should receive **at least** the following props:
+      - [x] `nutritions` - an array of `nutrition` items
+    - [x] If the `nutritions` array has no items in it, it should render an empty message that says `Nothing here yet` inside an element with the `className` of `empty-message`
+    - [x] If the `nutritions` array does have items in it:
+      - [x] For each item in the `nutritions` array, it should render a `NutritionCard.jsx` component
 
   - [x] The **`NutritionNew.jsx`** component:
 
@@ -397,23 +397,23 @@ The components in the `App.jsx` file should render the following components (alo
       - [x] `name` - name of the nutrition item (defaults to an empty string)
       - [x] `calories` - number of calories in the nutrition item (defaults to 1)
       - [x] `imageUrl` - the `url` of an image to show for this nutrition item (defaults to an empty string)
-      - [ ] `category` - the category that this nutrition item belongs to, like fruit, meat, soda, snack, nuts, etc. (defaults to an empty string)
-    - [ ] Each `input` element in the form should have a `className` of `form-input` and should have the following props set:
+      - [x] `category` - the category that this nutrition item belongs to, like fruit, meat, soda, snack, nuts, etc. (defaults to an empty string)
+    - [x] Each `input` element in the form should have a `className` of `form-input` and should have the following props set:
       - [x] `name` - the `name` of the `input` field being rendered (`name`, `calories`, `imageUrl`, `category`)
       - [x] `type` - the type of the `input` element (`text`, `email`, `number`, etc)
       - [x] `value` - the current value of the `input` element
       - [x] `onChange` - the `onChange` handler function
-    - [ ] The component should gracefully handle errors:
-      - [ ] If any of the required fields are left blank, there should be an error message inside of an element with the `className` of `error` indicating which fields are required.
-      - [ ] If the user has attempted to create a nutrition entry and gotten a `400` or `422` error, then that message should be displayed inside an element with the `className` of `error`
-    - [ ] There should be a `button` element with the `className` of `submit-nutrition`:
-      - [ ] It should contain the text `"Save"`
-      - [ ] When clicked, it should call a function that creates a new nutrition entry
-    - [ ] After the form has been succesfully submitted:
-      - [ ] Ensure that the new nutrition entry is stored in the `nutrition` context's `nutritions` array and is displayed in the `NutritionFeed.jsx` component
+    - [x] The component should gracefully handle errors:
+      - [x] If any of the required fields are left blank, there should be an error message inside of an element with the `className` of `error` indicating which fields are required.
+      - [x] If the user has attempted to create a nutrition entry and gotten a `400` or `422` error, then that message should be displayed inside an element with the `className` of `error`
+    - [x] There should be a `button` element with the `className` of `submit-nutrition`:
+      - [x] It should contain the text `"Save"`
+      - [x] When clicked, it should call a function that creates a new nutrition entry
+    - [x] After the form has been succesfully submitted:
+      - [x] Ensure that the new nutrition entry is stored in the `nutrition` context's `nutritions` array and is displayed in the `NutritionFeed.jsx` component
       - [ ] Refetch the `activity` data so that new summary stats will be calculated
 
-  - [ ] The **`NutritionDetail.jsx`** component:
+  - [x] The **`NutritionDetail.jsx`** component:
 
     - [x] Should render JSX that is wrapped by an element with the `className` of `nutrition-detail`
     - [x] It should leverage the `useParams` hook from `react-router-dom` to extract the `nutritionId` param from the url
@@ -424,21 +424,21 @@ The components in the `App.jsx` file should render the following components (alo
       - [x] It should store the `nutrition` received by the request in state and then render a `NutritionCard.jsx` component for that nutrition.
       - [x] If no `nutrition` is found with that `id`, it should render the `NotFound.jsx` component
 
-  - [ ] The **`NutritionCard.jsx`** component:
+  - [x] The **`NutritionCard.jsx`** component:
 
-    - [ ] Should render JSX that is wrapped by an element with the `className` of `nutrition-card`
-    - [ ] Should accept **at least** the following props:
-      - [ ] `nutrition` - should be a nutrition entry object containing the following attributes:
-        - [ ] `imageUrl` - (not required)
-        - [ ] `name` - (required)
-        - [ ] `calories` - (required)
-        - [ ] `category` - (required)
-        - [ ] `createdAt` - (required)
-    - [ ] It should render the `name` of the `nutrition` entry inside an element with the `className` of `nutrition-name`
-    - [ ] If the `nutrition` entry has a valid `imageUrl` attribute, it should render an `img` element with the `className` of `nutrition-image` and use that `imageUrl` as its `src`
-    - [ ] It should render the `calories` attribute of the `nutrition` entry inside an element with the `className` of `nutrition-calories`
-    - [ ] It should render the `category` attribute of the `nutrition` entry inside an element with the `className` of `nutrition-category`
-    - [ ] It should render the `createdAt` attribute of the `nutrition` entry in the format `dd/mm/yyyy` - example: `07/02/2022` - inside an element with the `className` of `nutrition-date`.
+    - [x] Should render JSX that is wrapped by an element with the `className` of `nutrition-card`
+    - [x] Should accept **at least** the following props:
+      - [x] `nutrition` - should be a nutrition entry object containing the following attributes:
+        - [x] `imageUrl` - (not required)
+        - [x] `name` - (required)
+        - [x] `calories` - (required)
+        - [x] `category` - (required)
+        - [x] `createdAt` - (required)
+    - [x] It should render the `name` of the `nutrition` entry inside an element with the `className` of `nutrition-name`
+    - [x] If the `nutrition` entry has a valid `imageUrl` attribute, it should render an `img` element with the `className` of `nutrition-image` and use that `imageUrl` as its `src`
+    - [x] It should render the `calories` attribute of the `nutrition` entry inside an element with the `className` of `nutrition-calories`
+    - [x] It should render the `category` attribute of the `nutrition` entry inside an element with the `className` of `nutrition-category`
+    - [x] It should render the `createdAt` attribute of the `nutrition` entry in the format `dd/mm/yyyy` - example: `07/02/2022` - inside an element with the `className` of `nutrition-date`.
 
   - [ ] DO THE SAME FOR ANY OTHER RESOURCE THAT IS IN THE APPLICATION
 
@@ -519,8 +519,8 @@ Here are the pieces of functionality that should be built out for the backend:
           - [x] `user_id`
           - [x] `created_at`
         - [ ] **Any other tables** that the application might depend on
-    - [ ] `lifetracker.sql`
-      - [ ] This script should:
+    - [x] `lifetracker.sql`
+      - [x] This script should:
         - [x] 1. Let the user know that they're about to delete the `lifetracker` db and prompt them to confirm that is what they want.
         - [x] 2. Drop the `lifetracker` database and then create a new `lifetracker` database, before connecting to the `lifetracker` database.
         - [x] 3. It should then run the `lifetracker-schema.sql` file.
@@ -585,11 +585,11 @@ Here are the pieces of functionality that should be built out for the backend:
         - [x] User can login successfully with proper credentials
         - [x] Unknown email throws `UnauthorizedError`
         - [x] Invalid credentials throws `UnauthorizedError`
-      - [x] Test the `register` method. Write test cases for:
-        - [x] User can successfully register with proper credentials
+      - [ ] Test the `register` method. Write test cases for:
+        - [ ] User can successfully register with proper credentials
         - [ ] Registering with duplicate email throws `BadRequestError`
         - [ ] Registering with duplicate username throws `BadRequestError`
-        - [x] Registering with invalid email throws `BadRequestError`
+        - [ ] Registering with invalid email throws `BadRequestError`
       - [ ] Test the `fetchUserByEmail` method:. Write test cases for:
         - [ ] A valid email returns a user from the database
         - [ ] Invalid emails are handled correctly
@@ -612,14 +612,14 @@ Here are the pieces of functionality that should be built out for the backend:
       - [ ] Implement the features outlined in the tests until they're all passing
   - [ ] Commit all work to `git`
   - [ ] The **security** middleware
-    - [ ] In the `middleware` directory, create two new files: `middleware/security.js` and `middleware/security.test.js`
-      - [ ] One middleware will be responsible for extracting a user from a valid JWT in the request:
-        - [ ] Checking the `Authentication` header of each request for the existence of a JWT.
-        - [ ] If one exists, it should extract the token, validate it, extract the encoded JSON payload, and attach it to the response's `locals` property
-      - [ ] One middleware will be responsible for ensuring that an authenticated user exists:
-        - [ ] Checking that a valid user exists on the response's `locals` property
-        - [ ] If one does, the middleware should simply call next
-        - [ ] If no valid user exists, it should throw an `UnauthorizedError`
+    - [x] In the `middleware` directory, create two new files: `middleware/security.js` and `middleware/security.test.js`
+      - [x] One middleware will be responsible for extracting a user from a valid JWT in the request:
+        - [x] Checking the `Authentication` header of each request for the existence of a JWT.
+        - [x] If one exists, it should extract the token, validate it, extract the encoded JSON payload, and attach it to the response's `locals` property
+      - [x] One middleware will be responsible for ensuring that an authenticated user exists:
+        - [x] Checking that a valid user exists on the response's `locals` property
+        - [x] If one does, the middleware should simply call next
+        - [x] If no valid user exists, it should throw an `UnauthorizedError`
     - [ ] In the `middleware/security.test.js` file:
       - [ ] Test the `Authentication` header parsing middleware
         - [ ] Write test cases for:
@@ -634,17 +634,17 @@ Here are the pieces of functionality that should be built out for the backend:
       - [ ] Implement the features outlined in the tests until they're all passing
     - [ ] In the `app.js` file, add the `Authentication` header parsing middleware to the Express app's middleware pipeline
   - [ ] Commit all work to `git`
-  - [ ] The **/auth** routes
-    - [ ] In the `routes` directory, create two new files: `routes/auth.js` and `routes/auth.test.js`
-      - [ ] A new Express router should be created. It should handle:
-        - [ ] A `GET` request to the `/me` endpoint
-          - [ ] It should send a JSON response back to the client with the user info like so: `{ "user": { "email": "user@gmail.com", ... } }`
-        - [ ] A `POST` request to the `/login` endpoint
-          - [ ] It should accept a request body with `email` and `password` keys
-          - [ ] It should send a JSON response back to the client with a new JWT and user info like so: `{ "token": "e2c2...", "user": { "email": "user@gmail.com", ... } }`
-        - [ ] A `POST` request to the `/register` endpoint
-          - [ ] It should accept a request body with `email`, `username`, `firstName`, `lastName`, and `password` keys
-          - [ ] It should send a JSON response back to the client with a `201` status code, along with a new JWT and user info like so: `{ "token": "e2c2...", "user": { "email": "user@gmail.com", ... } }`
+  - [x] The **/auth** routes
+    - [x] In the `routes` directory, create two new files: `routes/auth.js` and `routes/auth.test.js`
+      - [x] A new Express router should be created. It should handle:
+        - [x] A `GET` request to the `/me` endpoint
+          - [x] It should send a JSON response back to the client with the user info like so: `{ "user": { "email": "user@gmail.com", ... } }`
+        - [x] A `POST` request to the `/login` endpoint
+          - [x] It should accept a request body with `email` and `password` keys
+          - [x] It should send a JSON response back to the client with a new JWT and user info like so: `{ "token": "e2c2...", "user": { "email": "user@gmail.com", ... } }`
+        - [x] A `POST` request to the `/register` endpoint
+          - [x] It should accept a request body with `email`, `username`, `firstName`, `lastName`, and `password` keys
+          - [x] It should send a JSON response back to the client with a `201` status code, along with a new JWT and user info like so: `{ "token": "e2c2...", "user": { "email": "user@gmail.com", ... } }`
       - [ ] It should be mounted at the `/auth` endpoint in the `app.js` file
     - [ ] In the `routes/auth.test.js` file:
       - [ ] Test the `POST /auth/login` endpoint
@@ -673,18 +673,18 @@ Here are the pieces of functionality that should be built out for the backend:
   - [ ] There should now be a full-fledged authentication system in place!
 - **Resources and Permissions**
   - [ ] Next, implement the functionality to allow users to save instances of things they've drank/eaten, so that they can track their own nutrition data! Also make sure users can only access the data that they themselves have created. No other user should be able to see any data owned by another user!
-  - [ ] The **Nutrition** model
-    - [ ] In the `models` directory, create two new files: `models/nutrition.js` and `models/nutrition.test.js`
-      - [ ] The `Nutrition` model should have **at least** the following static methods:
-        - [ ] `createNutrition`
-          - [ ] Should insert a new nutrition instance into the database when values are supplied for all of the required fields: `"name"`, `"category"`, `"calories"`, and `"image_url"`. The `quantity` field should default to `1`.
-          - [ ] The new nutrition instance should have its `user_id` field set to the `id` of the authenticated user
-          - [ ] Should throw a `BadRequestError` (`400` status code) or `UnprocessableEntityError` (`422` status code) when any of those values are not supplied.
-        - [ ] `fetchNutritionById`
-          - [ ] When supplied with a valid `id`, fetches the a nutrition instance from the database that matches that `id`.
-          - [ ] If no nutrition instance matches that `id`, throws a `NotFoundError` (`404` status code)
-        - [ ] `listNutritionForUser`
-          - [ ] Should list all nutrition instances in the database that are owned by a particular user
+  - [x] The **Nutrition** model
+    - [x] In the `models` directory, create two new files: `models/nutrition.js` and `models/nutrition.test.js`
+      - [x] The `Nutrition` model should have **at least** the following static methods:
+        - [x] `createNutrition`
+          - [x] Should insert a new nutrition instance into the database when values are supplied for all of the required fields: `"name"`, `"category"`, `"calories"`, and `"image_url"`. The `quantity` field should default to `1`.
+          - [x] The new nutrition instance should have its `user_id` field set to the `id` of the authenticated user
+          - [x] Should throw a `BadRequestError` (`400` status code) or `UnprocessableEntityError` (`422` status code) when any of those values are not supplied.
+        - [x] `fetchNutritionById`
+          - [x] When supplied with a valid `id`, fetches the a nutrition instance from the database that matches that `id`.
+          - [x] If no nutrition instance matches that `id`, throws a `NotFoundError` (`404` status code)
+        - [x] `listNutritionForUser`
+          - [x] Should list all nutrition instances in the database that are owned by a particular user
     - [ ] In the `models/nutrition.test.js` file:
       - [ ] Test the `createNutrition` method. Write test cases for:
         - [ ] A user can create a nutrition instance when they supply the appropriate values
@@ -721,15 +721,15 @@ Here are the pieces of functionality that should be built out for the backend:
       - [ ] Implement the features outlined in the tests until they're all passing
     - [ ] Commit all work to `git`
   - [ ] The **/nutrition** routes
-    - [ ] In the `routes` directory, create two new files: `routes/nutrition.js` and `routes/nutrition.test.js`
-      - [ ] A new Express router should be created that will be mounted at the `/nutrition` endpoint. It should handle:
-        - [ ] `GET` requests to the `/` endpoint
-          - [ ] It should send a JSON response back to the client with all of the user-owned nutrition instances in an array like so: `{ "nutritions": [...] }`
-        - [ ] `POST` requests to the `/` endpoint
-          - [ ] It should accept a request body with one `nutrition` key containing an object with all the attributes of the `nutrition` entry
-          - [ ] It should send a JSON response back to the client with a `201` status code, and the newly created nutrition instance like so: `{ "nutrition": { ... } }`
-        - [ ] `GET` requests to the `/:nutritionId` endpoint
-          - [ ] It should send a JSON response back to the client with the nutrition instance that matches the `:nutritionId` parameter like so: `{ "nutrition": { ... } }`
+    - [x] In the `routes` directory, create two new files: `routes/nutrition.js` and `routes/nutrition.test.js`
+      - [x] A new Express router should be created that will be mounted at the `/nutrition` endpoint. It should handle:
+        - [x] `GET` requests to the `/` endpoint
+          - [x] It should send a JSON response back to the client with all of the user-owned nutrition instances in an array like so: `{ "nutritions": [...] }`
+        - [x] `POST` requests to the `/` endpoint
+          - [x] It should accept a request body with one `nutrition` key containing an object with all the attributes of the `nutrition` entry
+          - [x] It should send a JSON response back to the client with a `201` status code, and the newly created nutrition instance like so: `{ "nutrition": { ... } }`
+        - [x] `GET` requests to the `/:nutritionId` endpoint
+          - [x] It should send a JSON response back to the client with the nutrition instance that matches the `:nutritionId` parameter like so: `{ "nutrition": { ... } }`
     - [ ] In the `routes/nutrition.test.js` file:
       - [ ] Test the `GET /nutrition` endpoint
         - [ ] Write test cases for:

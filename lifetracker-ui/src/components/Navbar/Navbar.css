@@ -62,7 +62,7 @@ a {
    align-items: center;
    justify-content: center;
    white-space: nowrap;
-   font-weight: 300;
+   font-weight: 600;
    cursor: pointer;
    transition: all .1s ease;
    padding: 6px 12px;
