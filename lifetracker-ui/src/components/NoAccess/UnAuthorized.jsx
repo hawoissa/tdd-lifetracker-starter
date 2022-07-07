@@ -5,9 +5,11 @@ export default function UnAuthorized() {
   return (
     <div className="unauthorized">
       <h2>You must be authenticated to access this page.</h2>
+      <Link to="/login">
       <span>
-        <Link to="/login"><p>Click here to login</p></Link>
+        Click here to login
       </span>
+      </Link>
     </div>
   )
 }
