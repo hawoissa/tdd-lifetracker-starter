@@ -49,11 +49,11 @@ class ApiClient {
  }
 
  async listNutrition() {
-   return await this.request({ endpoint: `nutrition`, method: `GET` })
+   return await this.request({ endpoint: `nutrition/`, method: `GET`})
  }
 
- async createPost(post) {
-   return await this.request({ endpoint: `nutrition/create`, method: `POST`, data: post })
+ async createNutrition(nutrition) {
+   return await this.request({ endpoint: `nutrition/`, method: `POST`, data: nutrition })
  }
 
   async logoutUser() {

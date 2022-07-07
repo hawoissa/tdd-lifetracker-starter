@@ -38,24 +38,32 @@
    margin: 0px 200px;
 }
 
+.nutrition-feed .content {
+   display: flex;
+   flex-flow: row wrap;
+  
+}
+
 /* CARD RENDERED IN NUTRITION FEED .nutrition-feed */
 .nutrition-card {
-   height: 220px;
-   width: 360px;
    display: flex;
-   flex-direction: column;
+   padding: 5px;
+   margin: 5px;
+   border: 1px dashed #00c385;
+   width: 300px;
+   justify-content: space-between;
 }
 
 .nutrition-card .card-header {
    display: flex;
-   flex-direction: row;
-   width: 220px;
-   padding: 30px;
+   flex-direction: column;
+   justify-content: space-between;
+   max-width: 120px;
 }
 
-.nutrition-card .card-header img {
-   width: 20px;
-   height: 20px;
+.nutrition-card img {
+   width: 100px;
+   height: auto;
 }
 
 .nutrition-card .card-body {
@@ -64,11 +72,21 @@
    justify-content: space-between;
 }
 
-.nutrition-card .card-footer {
+/* .nutrition-card .card-body  .calories {
    display: flex;
    flex-direction: row;
-   justify-content: space-between;
+   padding-right: 5px;
+} */
+
+.nutrition-card .card-footer {
+   display: flex;
+   flex-direction: column-reverse;
+   
 }
+
+
+
+/* CSS FOR FORM  */
 
 .nutrition-form .form {
    margin: 10px 400px;
@@ -119,4 +137,9 @@
    align-items: center;
    justify-content: center;
    padding: 3px;
+}
+
+span {
+   color: red;
+   font-size: 10px;
 }

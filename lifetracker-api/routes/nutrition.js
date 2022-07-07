@@ -5,10 +5,10 @@ const User = require("../models/user");
 const router = express.Router();
 
 
-router.post("/create", security.requireAuthenticatedUser, async (req, res, next) => {
+router.post("/", security.requireAuthenticatedUser, async (req, res, next) => {
    try {
       const  { user } = res.locals;
-      const nutrition = await Nutrition.createNewNutrition({ user, nutrition: req.body});
+      const nutrition = await Nutrition.createNewNutrition({ nutrition: req.body, user});
       res.status(201).json({ nutrition });
    } catch(error) {
       next(error);
@@ -17,10 +17,9 @@ router.post("/create", security.requireAuthenticatedUser, async (req, res, next)
 
 router.get("/", security.requireAuthenticatedUser, async (req, res, next) => {
    try {
-      const { email } = res.locals.user;
-      const user = await User.fetchUserByEmail(email);
+      const { user } = res.locals;
       console.log(user);
-      const nutrition = await Nutrition.listAllNutrition(user.id);
+      const nutrition = await Nutrition.listAllNutrition({user});
       return res.status(200).json({ nutrition });
    } catch(error) {
       next(error);

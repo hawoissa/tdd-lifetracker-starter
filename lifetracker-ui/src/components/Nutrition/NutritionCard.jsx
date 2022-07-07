@@ -17,10 +17,10 @@ export default function NutritionCard({ name, calories, category, createdAt, ima
             <h4>Calories</h4>   
             <h2>{calories}</h2>   
           </div>
-          <div className="quantity">
+          {/* <div className="quantity">
             <h4>Quantity</h4>   
             <h2>1</h2>   
-          </div>
+          </div> */}
 
         </div>
 

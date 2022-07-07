@@ -17,17 +17,17 @@ export default function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState({});
   const [nutrition, setNutrition] = useState([]);
-  const [error, setError] = useState([]);
+  const [error, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-
+  
   useEffect(() => {
     const fetchUser = async () => {
-      const { data } = await apiClient.fetchUserFromToken()
+      const { data } = await apiClient.fetchUserFromToken();
       if (data) {
-        setUser(data.user)
+        setUser(data.user);
       }
     }
-    const token = localStorage.getItem("lifetracker_token")
+    const token = localStorage.getItem("lifetracker_token");
     if (token) {
       apiClient.setToken(token);
       fetchUser();
@@ -37,24 +37,9 @@ export default function App() {
   const handleLogout = async () => {
     await apiClient.logoutUser();
     setUser({});
+    setNutrition([]);
     setIsLoggedIn(false);
   }
-
-  //get all nutrition data from user
-  useEffect(() => {
-    const fetchNutrition = async () => {
-      setIsLoading(true);
-      const { data, error } = await apiClient.listNutrition();
-      if (data) {
-        setNutrition(data.nutrition);
-      }
-      if (error) {
-        setError(error);
-      }
-      setIsLoading(false);
-    }
-    fetchNutrition(); 
-  }, [])
 
   return (
     <div className="app">
@@ -72,7 +57,7 @@ export default function App() {
 
             <Route path="/activity" element={isLoggedIn ? <ActivityPage /> : < UnAuthorized />} />
 
-            <Route path="/nutrition/*" element={isLoggedIn ? <NutritionPage nutrition={nutrition}/> : <UnAuthorized />}/>
+            <Route path="/nutrition/*" element={isLoggedIn ? <NutritionPage nutrition={nutrition} setNutrition={setNutrition} user={user}/> : <UnAuthorized />}/>
             
             <Route path="*" element={<NotFound />} />
           </Routes>
