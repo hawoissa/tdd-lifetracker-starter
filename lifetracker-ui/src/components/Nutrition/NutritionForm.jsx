@@ -1,50 +1,14 @@
 import React from "react"
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
-import apiClient from "../../services/apiClient";
+import { Link, useNavigate } from "react-router-dom";
+import { useNutritionContext } from "../../context/nutrition";
 import "./Nutrition.css"
 
-export default function NutritionForm({setNutrition, user}) {
-   const [isLoading, setIsLoading] = useState(false);
-   let nav = useNavigate();
-   const [errors, setErrors] = useState({});
-    const [form, setForm] = useState({
-      name: "",
-      category: "",
-      calories: "",
-      image_url: ""
-    });
-
-    const handleOnInputChange = (event) => {
-      setForm((f) => ({...f, [event.target.name]: event.target.value}));
-   }
-
-   const handleOnSubmit = async (e) => {
-      e.preventDefault();
-      setIsLoading(true);
-      setErrors(f => [{...f, form: null}]);
-      
-      const newForm = async () => {
-         const {data, err} = await apiClient.createNutrition(form);
-         console.log(data);
-      }
-      const listNutrition = async () => {
-         const {data, err} = await apiClient.listNutrition();
-         if (data) {
-            setNutrition(data.nutrition);
-            nav("/nutrition");
-         }
-         if (err) {
-            setErrors(err)
-           
-         }
-         console.log("hello");
-      }
-      
-      newForm();
-      listNutrition();
-      setIsLoading(false);
+export default function NutritionForm() {
+   const { isProccessing, form, errors, handleOnInputChange, handleOnForm } = useNutritionContext();
+   const nav = useNavigate();
+   const handleOnSubmit = () => {
+      handleOnForm();
+      nav("/nutrition");
    }
 
    return (
@@ -94,7 +58,7 @@ export default function NutritionForm({setNutrition, user}) {
 
          <button className="submit-nutrition" onClick={handleOnSubmit} >  
                   {/* {errors ? <p>An error is happening.</p> : <p>Sign Up</p> } */}
-                  {isLoading ? "Loading..." : "Record Nutrition" }
+                  {isProccessing ? "Loading..." : "Record Nutrition" }
          </button>
 
          <div className="goback">

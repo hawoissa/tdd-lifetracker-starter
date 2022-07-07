@@ -1,19 +1,9 @@
 import * as React from "react"
-import { useState} from "react"
-import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom"
-import apiClient from "../../services/apiClient";
-import axios from "axios"
+import {useAuthContext} from "../../context/auth";
 import "./LoginForm.css"
 
-export default function LoginForm( props) {
-   const navigate = useNavigate();
-   const [errors, setErrors] = useState({})
-   const [isLoading, setIsLoading] = useState(false);
-   const [form, setForm] = useState({
-     email: "",
-     password: "",
-   })
+export default function LoginForm() {
+  const { setFormLogin, formLogin, handleLogin, setErrors, errors, isProccessing} = useAuthContext();
 
    const handleOnInputChange = (event) => {
       if (event.target.name === "email") {
@@ -23,23 +13,7 @@ export default function LoginForm( props) {
           setErrors((err) => ({ ...err, email: null }))
         }
       }
-      setForm((form) => ({ ...form, [event.target.name]: event.target.value }))
-    }
-
-    const handleOnSubmit = async () => {
-      setIsLoading(false);
-      setErrors((err) => ({ ...err, form: null }))   
-      const { data } = await apiClient.loginUser({ email: form.email, password: form.password })
-      if (data) {
-        props.setUser(data.user);
-        props.setIsLoggedIn(true);
-        apiClient.setToken(data.token);
-        navigate("/activity");
-      }
-      if (errors) {
-        setErrors((err) => ({ ...err, form: errors }))
-      }
-      setIsLoading(false);
+      setFormLogin((form) => ({ ...form, [event.target.name]: event.target.value }))
     }
 
    return (
@@ -52,7 +26,7 @@ export default function LoginForm( props) {
                type="email"
                name="email"
                placeholder="Example@example.com"
-               value={form.email}
+               value={formLogin.email}
                onChange={handleOnInputChange}
                /> 
                {errors.email && <span className="error">{errors.email}</span>}
@@ -63,15 +37,15 @@ export default function LoginForm( props) {
                type="password"
                name="password"
                placeholder="Password"
-               value={form.password}
+               value={formLogin.password}
                onChange={handleOnInputChange}
                /> 
                {errors.password && <span className="error">{errors.pasword}</span>}
             </div>
             
-               <button className="submit-login" onClick= {handleOnSubmit}> 
+               <button className="submit-login" onClick= {handleLogin}> 
                   {/* {errors ? <p>An error is happening.</p> : <p>Login</p> } */}
-                  {isLoading ? <p>Loading...</p> : <p>Login</p> }
+                  {isProccessing ? <p>Loading...</p> : <p>Login</p> }
                </button>
             
          </div>

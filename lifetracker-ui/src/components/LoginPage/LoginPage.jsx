@@ -1,13 +1,13 @@
 import React from "react";
 import LoginForm from "components/LoginForm/LoginForm";
 
-export default function LoginPage( props ) {
+export default function LoginPage() {
    
    return (
       <div className="login-page">
-         <LoginForm setIsLoggedIn={props.setIsLoggedIn} user={props.user} setUser={props.setUser}/>
+         <LoginForm />
       </div>
-   )
+   ) 
  }
 
     // const navigate = useNavigate();

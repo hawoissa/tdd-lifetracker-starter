@@ -1,13 +1,13 @@
+import {useAuthContext} from "../../context/auth";
 import * as React from "react"
 import { Link } from "react-router-dom"
 import "./Navbar.css"
 
-export default function NavLinks( props ) {
+export default function NavLinks() {
+   const {isLoggedIn, handleLogout} = useAuthContext();
    return  (
       <div className="nav-links">
-         {/* <div className="content"> */}
-
-         {!props.isLoggedIn ?
+         {!isLoggedIn ?
             <ul className="links">
             <li><Link to="/activity">Activity</Link></li>
             <li><Link to="/nutrition">Nutrition</Link></li> 
@@ -18,7 +18,7 @@ export default function NavLinks( props ) {
          <ul className="links">  
             <li><Link to="/activity">Activity</Link></li>
             <li><Link to="/nutrition">Nutrition</Link></li>         
-            <li className="signup" onClick={props.handleLogout}><Link to="/">Log Out</Link></li>
+            <li className="signup" onClick={handleLogout}><Link to="/">Log Out</Link></li>
          </ul>    
          }
       </div>
