@@ -1,11 +1,13 @@
 import React from "react";
 import "./Nutrition.css"
+import { Link } from "react-router-dom";
 
-export default function NutritionCard({ name, calories, category, createdAt, imageUrl}) {
+export default function NutritionCard({ id, name, calories, category, createdAt, imageUrl}) {
    
    return (
+    <Link to={`/nutrition/${id}`} className="link">
       <div className="nutrition-card">
-
+      
         <div className="card-head">
           <img src={imageUrl} alt="Image" />
           <h4>{name}</h4>
@@ -30,7 +32,7 @@ export default function NutritionCard({ name, calories, category, createdAt, ima
             <p>{category}</p>
 
         </div>
-
       </div>
+    </Link>
    )
  }

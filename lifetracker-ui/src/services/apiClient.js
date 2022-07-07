@@ -44,8 +44,8 @@ class ApiClient {
     return await this.request({ endpoint: `auth/login`, method: `POST`, data: credentials })
   }
 
-  async fetchNutritionById(nutritionId) {
-   return await this.request({ endpoint: `nutrition/${nutritionId}`, method: `GET` })
+  async fetchNutritionById(id) {
+   return await this.request({ endpoint: `nutrition/${id}`, method: `GET`, nutritionId: id })
  }
 
  async listNutrition() {

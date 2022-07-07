@@ -32,7 +32,7 @@ export default function NutritionFeed({ nutrition, setNutrition }) {
             let date = card.created_at.split("T")[0];
         
             return <NutritionCard name={card.name} calories={card.calories} 
-            category={card.category} createdAt={date} 
+            category={card.category} createdAt={date} id={card.id}
             imageUrl={card.image_url} key={card.id}/> 
        
         }) : <h2 className="nothing">Nothing here yet</h2> 
