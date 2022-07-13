@@ -37,7 +37,7 @@ Building this application you will accomplish the following:
 - [x]  When a user first authenticates, they should be redirected to an authenticated view (i.e the detailed activity page). When they sign out, all frontend data should be reset.
  - [x] The API should have a security middleware that only allows authenticated users to access resources and only allows users to access resources about themselves.
  - [x] Users should have the ability to track at least 1 types of activities (i.e Nutrition, Exercise, Sleep, etc.). Each activity should be tracked on separate pages.
- - [ ] Deploy your website with Heroku & Surge. Checkout our Deploy with Heroku & Surge tutorial for detailed instructions. Note: Be sure to follow the deployment instructions for variation #2: Node/Express backend, React frontend, and Postgres database.
+ - [x] Deploy your website with Heroku & Surge. Checkout our Deploy with Heroku & Surge tutorial for detailed instructions. Note: Be sure to follow the deployment instructions for variation #2: Node/Express backend, React frontend, and Postgres database.
 
 ## Application Features
 

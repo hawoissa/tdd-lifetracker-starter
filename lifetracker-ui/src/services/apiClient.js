@@ -62,6 +62,6 @@ class ApiClient {
   }
 }
 
-const apiClient = new ApiClient("http://localhost:3001")
+const apiClient = new ApiClient("https://lifetracker-hawo.herokuapp.com")
 
 export default apiClient;

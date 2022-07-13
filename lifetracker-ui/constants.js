@@ -1,4 +1,4 @@
-const PRODUCTION_API_BASE_URL = "https://lifetracker-hawo.herokuapp.com/";
+const PRODUCTION_API_BASE_URL = "https://permissible-lifetracker.surge.sh/";
 
 const API_BASE_URL = PRODUCTION_API_BASE_URL;
 
