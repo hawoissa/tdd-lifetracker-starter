@@ -1,0 +1,56 @@
+.error {
+   font-size: 13px;
+   color: red;
+}
+
+.card {
+   margin: 10px 400px;
+   color: black;
+   display: flex;
+   flex-direction: column;
+}
+
+.card .input-field {
+   display: flex;
+   flex-direction: column;
+   margin-bottom: 20px;
+   font-size: larger;
+}
+
+.card .input-field input {
+   margin-top: 10px;
+   height: 40px;
+   border: 1px solid black;
+   color: black;
+}
+
+.card .split {
+   display: flex;
+   align-items: center;
+   flex-direction: row;
+   gap: 20px;
+   width: 100%;
+   justify-content: space-around;
+}
+
+.card .split .input-field {
+   width: 350px;
+}
+
+.card .submit-registration{
+   background: transparent;
+   padding: 120px;
+   border: 1px solid transparent;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   white-space: nowrap;
+   font-weight: 600;
+   cursor: pointer;
+   font-size: large;
+   transition: all .1s ease;
+   padding: 6px 12px;
+   border-radius: 4px;
+   background: #00c98e;
+   color: #fff;
+}
